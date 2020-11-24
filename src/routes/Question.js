@@ -47,7 +47,8 @@ const Question = ({history}) => {
 
             window.setTimeout(() => {
                 history.push({
-                    pathname : `/result/${result.typenum}`
+                    pathname : `/result/${result.typenum}`,
+                    state : { result : result }
                 })
             }, 3000)
         }

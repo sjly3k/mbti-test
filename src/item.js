@@ -21,7 +21,7 @@ export const result = [
     "typenum" : 1,
     "main_title" : "민트캔디",
     "sub_title" : "코 뻥 뚫리는",
-    "image" : "https://spti.snackpot.kr/images/type/1_1.png",
+    "image" : "../images/results/1_1.png",
     "desc_text" : "뒤끝없이 시원시원한 성격을 가지고 있어요.",
     "result" : [0, 0, 0]
   },
@@ -29,7 +29,7 @@ export const result = [
     "typenum" : 2,
     "main_title" : "데자와",
     "sub_title" : "호불호 갈리는",
-    "image" : "https://spti.snackpot.kr/images/type/2_1.png",
+    "image" : "../images/type/2_1.png",
     "desc_text" : "개성과 주장이 강한 사람이에요",
     "result" : [0, 0, 1]
   },
@@ -37,7 +37,7 @@ export const result = [
     "typenum" : 3,
     "main_title" : "불닭볶음면",
     "sub_title" : "불도저 같은",
-    "image" : "https://spti.snackpot.kr/images/type/3_1.png",
+    "image" : "../images/type/3_1.png",
     "desc_text" : "아니면 아니고 기면 기고. 답답한게 제일 싫어요!",
     "result" : [0, 1, 1]
   },
