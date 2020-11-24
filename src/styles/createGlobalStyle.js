@@ -4,6 +4,10 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   ${reset}
   
+  a {
+    text-decoration: none;
+  }
+  
   input {
     all: unset;
     appearance: none;

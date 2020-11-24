@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { useState }  from "react";
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
+import {dbService} from "../firebase";
 
 const Home = () => {
+
+    const [count, setCount] = useState(0);
+    dbService.collection('picks').get().then(
+        (snapshot) => {
+            if (snapshot.empty) {
+                setCount(0)
+            } else {
+                setCount(snapshot.docs.length)
+            }
+        }
+    )
 
     return (
         <div id="wrapper">
@@ -19,6 +31,9 @@ const Home = () => {
                     <HomeStartButtonText className={"home-start_btn-text"}>
                         테스트 시작하기
                     </HomeStartButtonText>
+                    <HomeCountText>
+                        현재 총 <HomeCountNumber>{count}</HomeCountNumber>명이 참여했어요.
+                    </HomeCountText>
                 </HomeStartButton>
             </Link>
         </div>
@@ -75,4 +90,14 @@ const HomeStartButtonText = styled.span`
     margin-bottom: 8px;
 `
 
+const HomeCountText = styled.div`
+    font-weight: 400;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    word-break: break-all;
+`
+const HomeCountNumber = styled.span`
+    font-weight: 700;
+`
 export default Home;
