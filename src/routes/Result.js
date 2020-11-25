@@ -17,6 +17,7 @@ const Result = ({history}) => {
 
     const onClickDownload = useCallback(() => {
         snap(element, { file : 'result.png' })
+        alert("결과 사진이 다운로드 되었습니다");
     }, [snap, element])
 
     return (
@@ -36,30 +37,13 @@ const Result = ({history}) => {
                     <ResultDescText>{resultData.desc_text}</ResultDescText>
                     <ResultDetailSection>
                         <ResultDetailUl>
-                            <ResultDetailLi>
-                                시원시원하게 적극적이고 직선적이에요.
-                            </ResultDetailLi>
-                            <ResultDetailLi>
-                                스스로도 호불호가 강해서 내가 좋아하는 사람은 너무 좋은데 싫은 사람은 너무 싫어요.
-                            </ResultDetailLi>
-                            <ResultDetailLi>
-                                한 번 싫으면 영구히 싫어해요.
-                            </ResultDetailLi>
-                            <ResultDetailLi>
-                                이렇게 개성이 있는 사람에게 호!! 를 외치는 사람도 있지만 이기적이라고 불호!!를 외치는 사람도 있어요
-                            </ResultDetailLi>
-                            <ResultDetailLi>
-                                뒤끝이 부족해요. 자신이 좋아하는 것에는 누구보다 열정을 쏟을 수 있지만 빨리 질려요.
-                            </ResultDetailLi>
-                            <ResultDetailLi>
-                                뒤끝이 부족해요. 자신이 좋아하는 것에는 누구보다 열정을 쏟을 수 있지만 빨리 질려요.
-                            </ResultDetailLi>
-                            <ResultDetailLi>
-                                뒤끝이 부족해요. 자신이 좋아하는 것에는 누구보다 열정을 쏟을 수 있지만 빨리 질려요.
-                            </ResultDetailLi>
-                            <ResultDetailLi>
-                                뒤끝이 부족해요. 자신이 좋아하는 것에는 누구보다 열정을 쏟을 수 있지만 빨리 질려요.
-                            </ResultDetailLi>
+                            {
+                                resultData.explanation.map((explain, index) => {
+                                    return (
+                                        <ResultDetailLi key={index}>{explain}</ResultDetailLi>
+                                    )
+                                })
+                            }
                         </ResultDetailUl>
                     </ResultDetailSection>
                 </div>
@@ -98,6 +82,17 @@ const Result = ({history}) => {
                         )
                     }
                 </Link>
+                <ResultFooter>
+                    <ResultCopyright>
+                        제작자 : 중앙대학교 소프트웨어학부 18학번 이승진
+                    </ResultCopyright>
+                    <ResultCopyright>
+                        주관 : 중앙대학교 예술대학
+                    </ResultCopyright>
+                    <ResultCopyright>
+                        2020 &copy; All Rights Reserved.
+                    </ResultCopyright>
+                </ResultFooter>
             </ResultContents>
         </div>
     )
@@ -238,6 +233,7 @@ const ResultShareBtn = styled.div`
     flex: 20% 1;
     height: 40px;
     margin-bottom: 24px;
+    cursor: pointer;
 `
 
 const ResultShareBtnImg = styled.img`
@@ -256,10 +252,24 @@ const ResultBtn = styled.div`
     align-items: center;
     justify-content: center;
     margin-bottom: 28px;
+    
+    :hover {
+      background-color: #ff5100; /* Change the color */
+      span {
+        color : #fff;
+      }
+    }
 `
 
 const ResultBtnJustLink = styled(ResultBtn)`
     background-color: #ff5100;
+    
+    :hover {
+      background-color: #f2f2f2;
+      span {
+        color: #222;
+      }
+    }
 `
 
 const ResultBtnText = styled.span`
@@ -275,6 +285,20 @@ const ResultBtnText = styled.span`
 
 const ResultBtnJustLinkText = styled(ResultBtnText)`
     color: #fff;
+`
+
+const ResultFooter = styled.footer`
+    text-align: center;
+    margin-bottom: 50px;
+`
+
+const ResultCopyright = styled.div`
+    font-size: 14px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height : 25px;
+    letter-spacing: -.35px;
+    color: #666;
 `
 
 export default Result;

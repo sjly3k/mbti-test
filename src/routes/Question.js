@@ -30,8 +30,9 @@ const Question = ({history}) => {
             return results.find(result => arrayEquals(result.result, choice))
         }
 
-        const insertData = async () => {
+        const insertData = async (result) => {
             await dbService.collection("picks").add({
+                result,
                 pick,
                 createAt : Date.now()
             })
@@ -41,14 +42,14 @@ const Question = ({history}) => {
         if (pick.length === 3) {
             const result = algorithm(pick)
 
-            insertData().then(() => console.log("데이터가 정상적으로 등록되었습니다."));
+            insertData(result.typenum).then(() => console.log("유저 데이터가 정상적으로 등록되었습니다."));
 
             setLoading(false)
 
             window.setTimeout(() => {
                 history.push({
                     pathname : `/result/${result.typenum}`,
-                    state : { result : result }
+                    state : { result : result.typenum }
                 })
             }, 3000)
         }
