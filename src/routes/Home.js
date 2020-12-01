@@ -2,20 +2,20 @@ import React, { useState }  from "react";
 import {Link} from "react-router-dom";
 import styled, {keyframes} from 'styled-components';
 import {dbService} from "../firebase";
-import CountUp from 'react-countup';
+// import CountUp from 'react-countup';
 
 const Home = () => {
 
-    const [count, setCount] = useState(0);
-    dbService.collection('picks').get().then(
-        (snapshot) => {
-            if (snapshot.empty) {
-                setCount(0)
-            } else {
-                setCount(snapshot.docs.length)
-            }
-        }
-    )
+    // const [count, setCount] = useState(0);
+    // dbService.collection('picks').get().then(
+    //     (snapshot) => {
+    //         if (snapshot.empty) {
+    //             setCount(0)
+    //         } else {
+    //             setCount(snapshot.docs.length)
+    //         }
+    //     }
+    // )
 
     return (
         <div id="wrapper">

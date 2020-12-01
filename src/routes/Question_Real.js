@@ -122,24 +122,24 @@ const QuestionContents = styled.div`
     padding: 15% 0 0;
 `
 
-const QuestionText = styled.div`
-    width: 100%;
-    min-height: 176px;
-    word-break: keep-all;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 26px;
-    font-weight: 800;
-    line-height: 1.62;
-    letter-spacing: -.5px;
-    text-align: center;
-    color: #222;
-    padding: 0 40px;
-    margin-bottom: 35px;
-    white-space: pre-line;
-`
+// const QuestionText = styled.div`
+//     width: 100%;
+//     min-height: 176px;
+//     word-break: keep-all;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+//     font-size: 26px;
+//     font-weight: 800;
+//     line-height: 1.62;
+//     letter-spacing: -.5px;
+//     text-align: center;
+//     color: #222;
+//     padding: 0 40px;
+//     margin-bottom: 35px;
+//     white-space: pre-line;
+// `
 
 const QuestionAnswerItem = styled.img`
     display: flex;
