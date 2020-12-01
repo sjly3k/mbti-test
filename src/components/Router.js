@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Home from "../routes/Home";
-import Question from "../routes/Question_Real";
+import Question from "../routes/Question";
 import Result from "../routes/Result";
 
 const AppRouter = () => {
