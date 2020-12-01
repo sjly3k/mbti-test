@@ -2,7 +2,7 @@ import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
 import Auraka from "../fonts/Auraka.ttf"
 import NeuropolX from "../fonts/NeuropolX_regular.woff2"
-
+import bgImage from "../images/bg_logo.png"
 const GlobalStyle = createGlobalStyle`
 
   @font-face {
@@ -56,6 +56,10 @@ const GlobalStyle = createGlobalStyle`
         flex: 1;
         overflow-y: auto;
         z-index: 0;
+        background-image: url(${bgImage});
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: center;
     }
     
     #root {

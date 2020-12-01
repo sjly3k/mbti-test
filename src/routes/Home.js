@@ -75,7 +75,8 @@ const HomeTitleImg = styled.img`
     animation: ${up} 1s ease;
     width: 100%;
     height: auto;
-    padding: 0 30px;
+    padding: 15px 30px;
+    padding-top: 40px;
 `
 
 const HomeSubTitle = styled.h3`
@@ -86,7 +87,7 @@ const HomeSubTitle = styled.h3`
     color: #222;
     animation: ${up} 1s ease;
     font-size: 15px;
-    line-height: 25px;
+    line-height: 30px;
     letter-spacing: -.5px;
     margin-bottom: 100px;
 `
@@ -99,6 +100,7 @@ const HomeStartButton = styled.img`
     width: 100%;
     height: auto;
     padding: 0 30px;
+    padding-top: 30px;
     margin-bottom: 10px;
     animation: ${up} 1s ease;
 `

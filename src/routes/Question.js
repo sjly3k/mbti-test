@@ -4,6 +4,7 @@ import { questions, results } from "../real_item";
 import styled from "styled-components";
 import Loading from "../components/Loading";
 import { dbService } from "../firebase";
+import VS from "../images/VS.png"
 
 const Question = ({history}) => {
     const [ pick, setPick ] = useState([])
@@ -95,7 +96,7 @@ const Question = ({history}) => {
                                             >
                                                 <QuestionAnswerImg src={question.q1_img}/>
                                             </QuestionAnswerItem>
-                                            <QuestionVS>VS</QuestionVS>
+                                            <QuestionVS/>
                                             <QuestionAnswerItem
                                                 id={"question"}
                                                 key={"second-answer"}
@@ -117,9 +118,13 @@ const Question = ({history}) => {
 }
 
 const QuestionVS = styled.div`
-    width: 100%;
-    font-family: 'NeuropolX';
-    text-align: center;
+    margin: 0 auto;
+    width: 60px;
+    height: 25px;
+    background: url(${VS});
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
 `
 
 const QuestionContents = styled.div`
