@@ -41,7 +41,7 @@ const Question = ({history}) => {
         console.log('Do something after counter has changed', pick, pick.length);
         if (pick.length === 7) {
             const result = algorithm(pick)
-
+            console.log(result)
             insertData().then(() => console.log("유저 데이터가 정상적으로 등록되었습니다."));
 
             setLoading(false)
