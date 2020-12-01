@@ -30,19 +30,19 @@ const Question = ({history}) => {
             return results.find(result => arrayEquals(result.result, choice))
         }
 
-        const insertData = async (result) => {
+        const insertData = async () => {
             await dbService.collection("picks").add({
-                result,
+                // result,
                 pick,
                 createAt : Date.now()
             })
         }
 
         console.log('Do something after counter has changed', pick, pick.length);
-        if (pick.length === 3) {
+        if (pick.length === 7) {
             const result = algorithm(pick)
 
-            // insertData(result.typenum).then(() => console.log("유저 데이터가 정상적으로 등록되었습니다."));
+            insertData().then(() => console.log("유저 데이터가 정상적으로 등록되었습니다."));
 
             setLoading(false)
 
@@ -51,7 +51,7 @@ const Question = ({history}) => {
                     pathname : `/result/1`,
                     // ${result.typenum}`,
                     state : { result : 1
-                        // result.typenum 
+                        // result.typenum
                     }
                 })
             }, 3000)
@@ -84,23 +84,26 @@ const Question = ({history}) => {
                         {
                             allQuestions.map((value, index) => {
                                 const question = JSON.parse(value)
-                                console.log(question)
                                 return (
                                     <div>
                                         <ul key={index}>
                                             <QuestionAnswerItem
+                                                id={"question"}
                                                 key={"first-answer"}
                                                 onClick={onClick}
                                                 value={0}
-                                                src={question.q1_img}
-                                            />
+                                            >
+                                                <QuestionAnswerImg src={question.q1_img}/>
+                                            </QuestionAnswerItem>
                                             <QuestionVS>VS</QuestionVS>
                                             <QuestionAnswerItem
+                                                id={"question"}
                                                 key={"second-answer"}
                                                 onClick={onClick}
                                                 value={1}
-                                                src={question.q2_img}
-                                            />
+                                            >
+                                                <QuestionAnswerImg src={question.q2_img}/>
+                                            </QuestionAnswerItem>
                                         </ul>
                                     </div>
                                 )
@@ -144,7 +147,7 @@ const QuestionContents = styled.div`
 //     white-space: pre-line;
 // `
 
-const QuestionAnswerItem = styled.img`
+const QuestionAnswerItem = styled.li`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,6 +160,12 @@ const QuestionAnswerItem = styled.img`
     margin-left: 30px;
     margin-right: 30px;
     text-transform : uppercase;
+`
+
+const QuestionAnswerImg = styled.img`
+  width: 100%;
+  height: auto;
+  pointer-events: none;
 `
 
 export default Question;
