@@ -6,9 +6,10 @@ import NeuropolX from "../fonts/NeuropolX_regular.woff2"
 const GlobalStyle = createGlobalStyle`
 
   @font-face {
-        font-family: 'Auraka';
-        src: url(${Auraka}) format('woff2');
-        font-weight: 200;
+      font-family: 'Auraka';
+      src: url(${Auraka}) format('woff2');
+      font-weight: 200;
+      unicode-range: U+000-5FF, U+AC00-D7AF;
   }
   @font-face {
       font-family: 'NeuropolX';
