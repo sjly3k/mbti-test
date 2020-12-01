@@ -1,15 +1,16 @@
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
-import Auraka from "../fonts/Auraka.woff2"
+import Auraka from "../fonts/Auraka.ttf"
 import NeuropolX from "../fonts/NeuropolX_regular.woff2"
 
 const GlobalStyle = createGlobalStyle`
 
   @font-face {
       font-family: 'Auraka';
-      src: url(${Auraka}) format('woff2');
+      src: url(${Auraka}) format('truetype');
       font-weight: 200;
       unicode-range: U+000-5FF, U+AC00-D7AF;
+      font-display: swap;
   }
   @font-face {
       font-family: 'NeuropolX';

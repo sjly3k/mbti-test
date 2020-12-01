@@ -35,7 +35,7 @@ const KakaoShareButton = () => {
 				container: '#kakao-link-btn',
 				objectType: 'feed',
 				content: {
-					title: '타이틀',
+					title: 'Idea Paradox',
 					description: '#리액트 #카카오 #공유버튼',
 					imageUrl: "https://picsum.photos/id/237/200/300",
 					link: {
