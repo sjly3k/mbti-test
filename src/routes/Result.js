@@ -1,9 +1,11 @@
 import React, { useRef, useCallback }  from "react";
+import {Helmet} from "react-helmet"
 import styled from "styled-components"
 import {Link} from "react-router-dom";
 import {result as results} from "../item";
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useCapture } from 'react-capture'
+import KakaoShareButton from "../components/KakaotalkShareBtn";
 
 const Result = ({history}) => {
     const { snap } = useCapture()
@@ -12,7 +14,7 @@ const Result = ({history}) => {
     const resultData = results.find(result => result.typenum === parseInt(dataNum, 10))
 
     const onClickCopyUrl = () => {
-        alert("URL이 클립보드에 복사되었습니다");
+        alert("URL이 클립보드에 복사되었습니다.");
     }
 
     const onClickDownload = useCallback(() => {
@@ -27,25 +29,25 @@ const Result = ({history}) => {
                     <ResultSrTitle>
                         내 친구의 스낵 성격유형은?
                     </ResultSrTitle>
-                    <ResultSubTitle as={"h3"}>
-                        {resultData.sub_title}
-                    </ResultSubTitle>
-                    <ResultMainTitle>
-                        {resultData.main_title}
-                    </ResultMainTitle>
-                    <ResultImg src={resultData.image}/>
-                    <ResultDescText>{resultData.desc_text}</ResultDescText>
-                    <ResultDetailSection>
-                        <ResultDetailUl>
-                            {
-                                resultData.explanation.map((explain, index) => {
-                                    return (
-                                        <ResultDetailLi key={index}>{explain}</ResultDetailLi>
-                                    )
-                                })
-                            }
-                        </ResultDetailUl>
-                    </ResultDetailSection>
+                    {/*<ResultSubTitle as={"h3"}>*/}
+                    {/*    {resultData.sub_title}*/}
+                    {/*</ResultSubTitle>*/}
+                    {/*<ResultMainTitle>*/}
+                    {/*    {resultData.main_title}*/}
+                    {/*</ResultMainTitle>*/}
+                    {/*<ResultImg src={resultData.image}/>*/}
+                    {/*<ResultDescText>{resultData.desc_text}</ResultDescText>*/}
+                    {/*<ResultDetailSection>*/}
+                    {/*    <ResultDetailUl>*/}
+                    {/*        {*/}
+                    {/*            resultData.explanation.map((explain, index) => {*/}
+                    {/*                return (*/}
+                    {/*                    <ResultDetailLi key={index}>{explain}</ResultDetailLi>*/}
+                    {/*                )*/}
+                    {/*            })*/}
+                    {/*        }*/}
+                    {/*    </ResultDetailUl>*/}
+                    {/*</ResultDetailSection>*/}
                 </div>
                 <ResultShareTitle>이 결과 공유하기</ResultShareTitle>
                 <ResultShareBtnWrapper>
@@ -54,12 +56,7 @@ const Result = ({history}) => {
                             <ResultShareBtnImg src={"../images/share/share_url.svg"}/>
                         </ResultShareBtn>
                      </CopyToClipboard>
-                    <ResultShareBtn>
-                        <ResultShareBtnImg src={"../images/share/share_kakao.svg"}/>
-                    </ResultShareBtn>
-                    <ResultShareBtn>
-                        <ResultShareBtnImg src={"../images/share/share_facebook.svg"}/>
-                    </ResultShareBtn>
+                    <KakaoShareButton/>
                 </ResultShareBtnWrapper>
 
                 {/* 이거 활성화 하려면 별도 작업 필요 (백엔드 작업 -> DB, 서버 필요해지고 구조 복잡해짐.), URL 복사로 대신하는 것이 좋아보임*/}

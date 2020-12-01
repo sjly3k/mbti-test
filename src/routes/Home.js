@@ -104,7 +104,6 @@ const HomeStartButton = styled.img`
 `
 
 const HomeStartButtonText = styled.div`
- 
     font-family: 'Auraka';
     font-weight: 400;
     text-align: center;

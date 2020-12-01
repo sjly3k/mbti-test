@@ -42,14 +42,17 @@ const Question = ({history}) => {
         if (pick.length === 3) {
             const result = algorithm(pick)
 
-            insertData(result.typenum).then(() => console.log("유저 데이터가 정상적으로 등록되었습니다."));
+            // insertData(result.typenum).then(() => console.log("유저 데이터가 정상적으로 등록되었습니다."));
 
             setLoading(false)
 
             window.setTimeout(() => {
                 history.push({
-                    pathname : `/result/${result.typenum}`,
-                    state : { result : result.typenum }
+                    pathname : `/result/1`,
+                    // ${result.typenum}`,
+                    state : { result : 1
+                        // result.typenum 
+                    }
                 })
             }, 3000)
         }
