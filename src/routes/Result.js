@@ -17,7 +17,7 @@ const Result = ({history}) => {
 
     const onClickDownload = useCallback(() => {
         snap(element, { file : 'result.png' })
-        alert("결과 사진이 다운로드 되었습니다");
+        alert("결과 사진이 다운로드 되었습니다.");
     }, [snap, element])
 
     return (
