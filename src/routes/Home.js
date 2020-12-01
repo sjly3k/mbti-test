@@ -1,21 +1,8 @@
-import React, { useState }  from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 import styled, {keyframes} from 'styled-components';
-import {dbService} from "../firebase";
-import CountUp from 'react-countup';
 
 const Home = () => {
-
-    const [count, setCount] = useState(0);
-    dbService.collection('picks').get().then(
-        (snapshot) => {
-            if (snapshot.empty) {
-                setCount(0)
-            } else {
-                setCount(snapshot.docs.length)
-            }
-        }
-    )
 
     return (
         <div id="wrapper">
@@ -39,14 +26,6 @@ const Home = () => {
                 <Link to={"/question"}>
                     <HomeStartButton src={"../images/home/start_btn.png"}/>
                 </Link>
-                <HomeStartButtonText>
-                    현재 총
-                    <span> </span>
-                    <HomeStartButtonTextPeopleNum>
-                        <CountUp start={0} end={count} duration={1}/>
-                    </HomeStartButtonTextPeopleNum>
-                    명이 참여하였습니다.
-                </HomeStartButtonText>
             </HomeWrapper>
         </div>
     )
@@ -76,7 +55,7 @@ const HomeTitleImg = styled.img`
     width: 100%;
     height: auto;
     padding: 15px 30px;
-    padding-top: 40px;
+    padding-top: 50px;
 `
 
 const HomeSubTitle = styled.h3`
@@ -89,7 +68,7 @@ const HomeSubTitle = styled.h3`
     font-size: 15px;
     line-height: 30px;
     letter-spacing: -.5px;
-    margin-bottom: 100px;
+    margin-bottom: 90px;
 `
 
 const HomeStartButton = styled.img`
@@ -103,20 +82,6 @@ const HomeStartButton = styled.img`
     padding-top: 30px;
     margin-bottom: 10px;
     animation: ${up} 1s ease;
-`
-
-const HomeStartButtonText = styled.div`
-    font-family: 'Auraka';
-    font-weight: 400;
-    text-align: center;
-    font-size: 15px;
-    color: black;
-    word-break: break-all;
-`
-
-const HomeStartButtonTextPeopleNum = styled.span`
-    font-family: 'Auraka';
-    font-weight: 700;
 `
 
 export default Home;

@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import { questions, results } from "../real_item";
 import styled from "styled-components";
 import Loading from "../components/Loading";
-import { dbService } from "../firebase";
 import VS from "../images/VS.png"
 
 const Question = ({history}) => {
@@ -31,19 +30,10 @@ const Question = ({history}) => {
             return results.find(result => arrayEquals(result.result, choice))
         }
 
-        const insertData = async () => {
-            await dbService.collection("picks").add({
-                // result,
-                pick,
-                createAt : Date.now()
-            })
-        }
-
         console.log('Do something after counter has changed', pick, pick.length);
         if (pick.length === 7) {
             const result = algorithm(pick)
             console.log(result)
-            insertData().then(() => console.log("유저 데이터가 정상적으로 등록되었습니다."));
 
             setLoading(false)
 
@@ -132,25 +122,6 @@ const QuestionContents = styled.div`
     height: 100%;
     padding: 15% 0 0;
 `
-
-// const QuestionText = styled.div`
-//     width: 100%;
-//     min-height: 176px;
-//     word-break: keep-all;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     flex-direction: column;
-//     font-size: 26px;
-//     font-weight: 800;
-//     line-height: 1.62;
-//     letter-spacing: -.5px;
-//     text-align: center;
-//     color: #222;
-//     padding: 0 40px;
-//     margin-bottom: 35px;
-//     white-space: pre-line;
-// `
 
 const QuestionAnswerItem = styled.li`
     display: flex;

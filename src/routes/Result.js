@@ -1,7 +1,6 @@
 import React, { useRef, useCallback }  from "react";
 import styled from "styled-components"
 import {Link} from "react-router-dom";
-// import {result as results} from "../item";
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useCapture } from 'react-capture'
 import KakaoShareButton from "../components/KakaotalkShareBtn";
