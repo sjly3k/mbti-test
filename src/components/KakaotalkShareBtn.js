@@ -40,27 +40,13 @@ const KakaoShareButton = () => {
 					imageUrl: "https://picsum.photos/id/237/200/300",
 					link: {
 						mobileWebUrl: window.location.href,
-						webUrl: window.location.href,
 					},
-				},
-				social: {
-					likeCount: 77,
-					commentCount: 55,
-					sharedCount: 333,
 				},
 				buttons: [
 					{
 						title: '웹으로 보기',
 						link: {
 							mobileWebUrl: window.location.href,
-							webUrl: window.location.href,
-						},
-					},
-					{
-						title: '앱으로 보기',
-						link: {
-							mobileWebUrl: window.location.href,
-							webUrl: window.location.href,
 						},
 					},
 				],
