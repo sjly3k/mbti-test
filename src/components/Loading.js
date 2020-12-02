@@ -38,7 +38,7 @@ const Loading = () => {
     return (
         <Container>
             <Title>분석중...</Title>
-            <Image src={"https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/e35/76807418_739977753167875_678906869621661789_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=mdvpDpcfWFkAX8HG70T&_nc_tp=18&oh=5e17eb4227da74fd200cba7cab39a974&oe=5FBF823A"}/>
+            <Image src={"https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/118841893_411920483105800_352106157547146821_n.jpg?_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_cat=104&_nc_ohc=tEEndqjEtT4AX-ut4bL&tp=1&oh=f79253bde74822dd7405d5bce5be1d48&oe=5FF07A25"}/>
         </Container>
     )
 }
