@@ -19,7 +19,9 @@ const Question = ({history}) => {
     }
 
     const loadImage = (image, index, size) => {
-        setPercentage((index / size) * 100)
+
+        // console.log((index / size) * 100)
+        // setPercentage((index / size) * 100)
         return new Promise((resolve, reject) => {
             const loadImg = new Image()
             loadImg.src = image.url
@@ -27,6 +29,7 @@ const Question = ({history}) => {
             loadImg.onload = () =>
                 setTimeout(() => {
                     resolve(image.url)
+                    setPercentage((index / size) * 100)
                 }, 1000)
 
             loadImg.onerror = err => reject(err)
@@ -43,10 +46,12 @@ const Question = ({history}) => {
 
         const goToResult = () => {
             setLoading(false)
-            history.push({
-                pathname : `/result`,
-                state : { result : `${pick.join()}.jpg` }
-            })
+            setTimeout(() => {
+                history.push({
+                    pathname : `/result`,
+                    state : { result : `${pick.join()}.jpg` }
+                })
+            }, 3000)
         }
 
         if (pick.length !== 0) {

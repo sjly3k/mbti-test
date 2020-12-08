@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Loading from "../components/Loading";
 
 const QuestionPresenter = ({
+    loading,
     onClick,
     allQuestions,
     fileName,
@@ -13,43 +14,45 @@ const QuestionPresenter = ({
     console.log(percentage)
     const question = JSON.parse(allQuestions.find(q => JSON.parse(q).num === pick.length))
     return (
-    !imagesLoaded ? (
-        <React.Fragment>
-            <span>{percentage}</span>
-            <Loading/>
-        </React.Fragment>
-        ) :
-        (
-            <Background link={`images/choice/${fileName}`} id="wrapper">
-                <QuestionContents>
-                    {
-                        <div>
-                            <QuestionAnswerItemList q1_pos={question.q1_pos} q2_pos={question.q2_pos}>
-                                <QuestionAnswerItemItem
-                                    id={"question"}
-                                    className={"first-answer"}
-                                    key={"first-answer"}
-                                    onClick={onClick}
-                                    value={"0"}
-                                >
-                                    <span>{question.q1}</span>
-                                </QuestionAnswerItemItem>
-                                <QuestionAnswerItemItem
-                                    id={"question"}
-                                    className={"second-answer"}
-                                    key={"second-answer"}
-                                    onClick={onClick}
-                                    value={"1"}
-                                >
-                                    <span>{question.q2}</span>
-                                </QuestionAnswerItemItem>
-                            </QuestionAnswerItemList>
-                        </div>
-                    }
-                </QuestionContents>
-            </Background>
+        !imagesLoaded ? (
+            <React.Fragment>
+                <span>{percentage}</span>
+                <Loading/>
+            </React.Fragment>
+            ) :
+            (
+                !loading ? (<Loading/>) : (
+                    <Background link={`images/choice/${fileName}`} id="wrapper">
+                        <QuestionContents>
+                            {
+                                <div>
+                                    <QuestionAnswerItemList q1_pos={question.q1_pos} q2_pos={question.q2_pos}>
+                                        <QuestionAnswerItemItem
+                                            id={"question"}
+                                            className={"first-answer"}
+                                            key={"first-answer"}
+                                            onClick={onClick}
+                                            value={"0"}
+                                        >
+                                            <span>{question.q1}</span>
+                                        </QuestionAnswerItemItem>
+                                        <QuestionAnswerItemItem
+                                            id={"question"}
+                                            className={"second-answer"}
+                                            key={"second-answer"}
+                                            onClick={onClick}
+                                            value={"1"}
+                                        >
+                                            <span>{question.q2}</span>
+                                        </QuestionAnswerItemItem>
+                                    </QuestionAnswerItemList>
+                                </div>
+                            }
+                        </QuestionContents>
+                    </Background>
+                )
+            )
         )
-    )
 }
 
 const Background = styled.div`
