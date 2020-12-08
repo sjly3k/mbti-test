@@ -5,7 +5,7 @@ import QuestionPresenter from "./QuestionPresenter";
 const Question = ({history}) => {
 
     const [ pick, setPick ] = useState([])
-    const [ fileName, setFileName ] = useState("start.png")
+    const [ fileName, setFileName ] = useState("start.jpg")
     const [ loading, setLoading ] = useState(true)
 
     const onClick = (event) => {
@@ -34,9 +34,9 @@ const Question = ({history}) => {
         console.log('Do something after counter has changed', pick, pick.length);
 
         if (pick.length !== 0) {
-            setFileName(`${pick.join()}.png`)
+            setFileName(`${pick.join()}.jpg`)
         } else {
-            setFileName('start.png')
+            setFileName('start.jpg')
         }
 
     }, [pick, history]);

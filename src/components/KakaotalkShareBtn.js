@@ -4,7 +4,6 @@ import styled from "styled-components";
 const ResultShareBtn = styled.div`
     flex: 20% 1;
     height: 40px;
-    margin-bottom: 24px;
     cursor: pointer;
 `
 

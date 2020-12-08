@@ -20,7 +20,7 @@ const ResultPresenter = ({
                     alignItems : "center",
                     marginTop : "20px"
                 }}>
-                    <img style={{width : "90%", height: "auto"}} src={"/images/results/1.png"} alt={"result_photo"}/>
+                    <img style={{width : "90%", height: "auto"}} src={"/images/results/0,0,0,0,0,0.jpg"} alt={"result_photo"}/>
                 </div>
                 <ResultContext>
                     테스트의 결과가 어떠한가.
@@ -71,7 +71,7 @@ const ResultPresenter = ({
                         </ResultBtn>
                     </Link>
 
-                    <Link to={"/images/results/result_img.png"} download>
+                    <Link to={"/images/results/0,0,0,0,0,0.jpg"} download>
                         <ResultBtn onClick={onClickDownload}>
                             <ResultBtnText>
                                 <span>Save</span>
@@ -79,15 +79,14 @@ const ResultPresenter = ({
                         </ResultBtn>
                     </Link>
 
-                    <CopyToClipboard text={window.location.href}>
-                        <ResultBtn id={"shareUrl"} onClick={onClickCopyUrl}>
-                            <ResultBtnText>
-                                <span>Copy Link</span>
-                            </ResultBtnText>
-                        </ResultBtn>
-                    </CopyToClipboard>
-
-                    <KakaoShareButton/>
+                    <ResultShareBtnWrapper>
+                        <CopyToClipboard text={window.location.href}>
+                            <ResultShareBtn id={"shareUrl"} onClick={onClickCopyUrl}>
+                                <ResultShareBtnImg src={"../images/share/share_url.svg"}/>
+                            </ResultShareBtn>
+                        </CopyToClipboard>
+                        <KakaoShareButton/>
+                    </ResultShareBtnWrapper>
 
                     <Link to={"/"}>
                         <ResultBtn>
@@ -213,6 +212,27 @@ const ResultFooterName = styled.div`
     font-size: 10px;
     font-weight: 300;
     margin-bottom: 5px;
+`
+
+const ResultShareBtnWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-flow: wrap;
+    margin-bottom: 20px;
+`
+
+const ResultShareBtn = styled.div`
+    flex: 20% 1;
+    height: 40px;
+    cursor: pointer;
+    margin-right: 20px;
+`
+
+const ResultShareBtnImg = styled.img`
+    object-fit: contain;
+    width: 40px;
+    height: 40px;
 `
 
 export default ResultPresenter;
