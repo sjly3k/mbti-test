@@ -1,17 +1,13 @@
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
+import gothamFont from "../fonts/GothamMedium.ttf"
 const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: "Gotham";
-    src: font-url("//rawgit.com/ApplicationCraft/applicationcraft.com/master/source/fonts/gotham-book-webfont.eot");
-    src: font-url("//rawgit.com/ApplicationCraft/applicationcraft.com/master/source/fonts/gotham-book-webfont.eot?#iefix") format("embedded-opentype"),
-         font-url("//rawgit.com/ApplicationCraft/applicationcraft.com/master/source/fonts/gotham-book-webfont.woff") format("woff"),
-         font-url("//rawgit.com/ApplicationCraft/applicationcraft.com/master/source/fonts/gotham-book-webfont.ttf") format("truetype"),
-         font-url("//rawgit.com/ApplicationCraft/applicationcraft.com/master/source/fonts/gotham-book-webfont.svg#gotham_bookregular") format("svg");
-    font-weight: 600;
-    font-style: normal;
+    src: url(${gothamFont});
   }
+  
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
   ${reset}
   

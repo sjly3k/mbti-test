@@ -60,12 +60,6 @@ const Background = styled.div`
     position : relative;
 `
 
-// const GIF = styled.img`
-//     z-index: 10000000;
-//     width: 100px;
-//     height: 100px;
-// `
-
 const QuestionContents = styled.div`
     width: 100%;
     height: 100%;
@@ -84,6 +78,8 @@ const QuestionAnswerItemList = styled.ul`
 
 const QuestionAnswerItemItem = styled.li`
     position: absolute;
+    background-color: #fff;
+    padding: 19px 10px 10px 10px;
     span {
         font-family: "Gotham";
         font-size: 30px;
@@ -92,8 +88,8 @@ const QuestionAnswerItemItem = styled.li`
         font-style: normal;
         line-height: normal;
         letter-spacing: 1.5px;
-        background-color: #fff;
         pointer-events: none;
+        
     }
 `
 

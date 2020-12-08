@@ -10,6 +10,7 @@ const Question = ({history}) => {
     const [ loading, setLoading ] = useState(true)
     const [ imagesLoaded, setImagesLoaded ] = useState(false)
     const [ percentage, setPercentage ] = useState(0);
+    const [ amount, setAmount ] = useState(0)
 
     const onClick = (event) => {
         event.preventDefault()
@@ -30,7 +31,7 @@ const Question = ({history}) => {
                 setTimeout(() => {
                     resolve(image.url)
                     setPercentage((index / size) * 100)
-                }, 1000)
+                }, 500)
 
             loadImg.onerror = err => reject(err)
         })
@@ -51,7 +52,7 @@ const Question = ({history}) => {
                     pathname : `/result`,
                     state : { result : `${pick.join()}.jpg` }
                 })
-            }, 3000)
+            }, 1500)
         }
 
         if (pick.length !== 0) {
