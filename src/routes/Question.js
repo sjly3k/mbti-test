@@ -10,7 +10,6 @@ const Question = ({history}) => {
     const [ loading, setLoading ] = useState(true)
     const [ imagesLoaded, setImagesLoaded ] = useState(false)
     const [ percentage, setPercentage ] = useState(0);
-    const [ amount, setAmount ] = useState(0)
 
     const onClick = (event) => {
         event.preventDefault()
