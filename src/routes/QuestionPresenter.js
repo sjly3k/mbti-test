@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Loading from "../components/Loading";
 
 const QuestionPresenter = ({
-    loading,
     onClick,
     allQuestions,
     fileName,
@@ -14,11 +13,12 @@ const QuestionPresenter = ({
     console.log(percentage)
     const question = JSON.parse(allQuestions.find(q => JSON.parse(q).num === pick.length))
     return (
-    !loading ? (
+    !imagesLoaded ? (
+        <React.Fragment>
+            <span>{percentage}</span>
             <Loading/>
-        ) : (!imagesLoaded ? (
-                <Loading/>
-            ) :
+        </React.Fragment>
+        ) :
         (
             <Background link={`images/choice/${fileName}`} id="wrapper">
                 <QuestionContents>
@@ -49,7 +49,7 @@ const QuestionPresenter = ({
                 </QuestionContents>
             </Background>
         )
-    ))
+    )
 }
 
 const Background = styled.div`
