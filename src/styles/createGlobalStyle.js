@@ -1,6 +1,5 @@
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
-import bgImage from "../images/bg.png"
 const GlobalStyle = createGlobalStyle`
 
   @font-face {

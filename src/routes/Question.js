@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from "react";
+import React, { useState, useEffect } from "react";
 import { questions } from "../real_item";
 import QuestionPresenter from "./QuestionPresenter";
 
