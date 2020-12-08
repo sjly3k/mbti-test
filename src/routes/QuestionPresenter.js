@@ -1,70 +1,64 @@
 import React from "react";
-import Slider from "react-slick";
 import styled from "styled-components";
 import Loading from "../components/Loading";
-import VS from "../images/VS.png"
-
+// import gif_1 from "../images/gif/gif_1.gif"
+// import bgImage from "../images/bg.png";
 const QuestionPresenter = ({
-    settings,
     loading,
     onClick,
     allQuestions,
-    customSlider
-
+    fileName,
+    pick
 }) => {
-
+    const question = JSON.parse(allQuestions.find(q => JSON.parse(q).num === pick.length))
     return (
     !loading ? (
             <Loading/>
         ) :
         (
-            <div id="wrapper">
+            <Background link={`images/choice/${fileName}`} id="wrapper">
+                {/*<GIF src={gif_1}/>*/}
                 <QuestionContents>
-                    <Slider {...settings} ref={customSlider}>
-                        {
-                            allQuestions.map((value, index) => {
-                                const question = JSON.parse(value)
-                                return (
-                                    <div key={index}>
-                                        <ul key={index}>
-                                            <QuestionAnswerItem
-                                                id={"question"}
-                                                key={"first-answer"}
-                                                onClick={onClick}
-                                                value={0}
-                                            >
-                                                <QuestionAnswerImg src={question.q1_img}/>
-                                            </QuestionAnswerItem>
-                                            <QuestionVS/>
-                                            <QuestionAnswerItem
-                                                id={"question"}
-                                                key={"second-answer"}
-                                                onClick={onClick}
-                                                value={1}
-                                            >
-                                                <QuestionAnswerImg src={question.q2_img}/>
-                                            </QuestionAnswerItem>
-                                        </ul>
-                                    </div>
-                                )
-                            })
-                        }
-                    </Slider>
+                    {
+                        <div>
+                            <QuestionAnswerItemList q1_pos={question.q1_pos} q2_pos={question.q2_pos}>
+                                <QuestionAnswerItemItem
+                                    id={"question"}
+                                    className={"first-answer"}
+                                    key={"first-answer"}
+                                    onClick={onClick}
+                                    value={"0"}
+                                >
+                                    <span>{question.q1}</span>
+                                </QuestionAnswerItemItem>
+                                <QuestionAnswerItemItem
+                                    id={"question"}
+                                    className={"second-answer"}
+                                    key={"second-answer"}
+                                    onClick={onClick}
+                                    value={"1"}
+                                >
+                                    <span>{question.q2}</span>
+                                </QuestionAnswerItemItem>
+                            </QuestionAnswerItemList>
+                        </div>
+                    }
                 </QuestionContents>
-            </div>
+            </Background>
         )
     )
 }
 
-const QuestionVS = styled.div`
-    margin: 0 auto;
-    width: 60px;
-    height: 25px;
-    background: url(${VS});
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: center;
+const Background = styled.div`
+    background-image: url(${props => props.link});
+    position : relative;
 `
+
+// const GIF = styled.img`
+//     z-index: 10000000;
+//     width: 100px;
+//     height: 100px;
+// `
 
 const QuestionContents = styled.div`
     width: 100%;
@@ -72,25 +66,29 @@ const QuestionContents = styled.div`
     padding: 15% 0 0;
 `
 
-const QuestionAnswerItem = styled.li`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: calc(100% - 60px);
-    min-height: 92px;
-    background-color: transparent;
-    text-align: center;
-    padding: 20px;
-    margin-left: 30px;
-    margin-right: 30px;
-    text-transform : uppercase;
+const QuestionAnswerItemList = styled.ul`
+    .first-answer {
+        ${props => props.q1_pos}
+    }
+    
+    .second-answer {
+        ${props => props.q2_pos}
+    }
 `
 
-const QuestionAnswerImg = styled.img`
-  width: 100%;
-  height: auto;
-  pointer-events: none;
+const QuestionAnswerItemItem = styled.li`
+    position: absolute;
+    span {
+        font-family: "Gotham";
+        font-size: 30px;
+        font-stretch: normal;
+        font-weight: bold;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 1.5px;
+        background-color: #fff;
+        pointer-events: none;
+    }
 `
 
 export default QuestionPresenter;

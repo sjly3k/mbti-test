@@ -1,23 +1,19 @@
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
-import Auraka from "../fonts/Auraka.ttf"
-import NeuropolX from "../fonts/NeuropolX_regular.woff2"
-import bgImage from "../images/bg_logo.png"
+import bgImage from "../images/bg.png"
 const GlobalStyle = createGlobalStyle`
 
   @font-face {
-      font-family: 'Auraka';
-      src: url(${Auraka}) format('truetype');
-      font-weight: 200;
-      unicode-range: U+000-5FF, U+AC00-D7AF;
-      font-display: swap;
+    font-family: "Gotham";
+    src: font-url("//rawgit.com/ApplicationCraft/applicationcraft.com/master/source/fonts/gotham-book-webfont.eot");
+    src: font-url("//rawgit.com/ApplicationCraft/applicationcraft.com/master/source/fonts/gotham-book-webfont.eot?#iefix") format("embedded-opentype"),
+         font-url("//rawgit.com/ApplicationCraft/applicationcraft.com/master/source/fonts/gotham-book-webfont.woff") format("woff"),
+         font-url("//rawgit.com/ApplicationCraft/applicationcraft.com/master/source/fonts/gotham-book-webfont.ttf") format("truetype"),
+         font-url("//rawgit.com/ApplicationCraft/applicationcraft.com/master/source/fonts/gotham-book-webfont.svg#gotham_bookregular") format("svg");
+    font-weight: 600;
+    font-style: normal;
   }
-  @font-face {
-      font-family: 'NeuropolX';
-      src: url(${NeuropolX}) format('woff2');
-      font-weight: 500;
-  }
-    
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
   ${reset}
   
   a {
@@ -56,7 +52,6 @@ const GlobalStyle = createGlobalStyle`
         flex: 1;
         overflow-y: auto;
         z-index: 0;
-        background-image: url(${bgImage});
         background-size: cover;
         background-position-x: center;
         background-position-y: center;

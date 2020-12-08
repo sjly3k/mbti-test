@@ -1,33 +1,41 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import styled, {keyframes} from 'styled-components';
+import bgImage from "../images/bg.png";
 
 const Home = () => {
 
     return (
-        <div id="wrapper">
+        <Background id="wrapper">
             <HomeWrapper>
                 <HomeTitleImg src={"../images/home/title.png"}/>
                 <HomeSubTitle>
-                    우리는 서로를 알아가야한다.
+                    지금 당신은 꿈속의 미지의 공간에서
                     <br/>
-                    Idea Paradox 테스트는
+                    헤매고 있다. 꿈은 우리의 무의식을 지배하는
                     <br/>
-                    당신의 이데아를 찾아주는,
+                    시각적 심상이다. 그리고 그 무의식은 당신을
                     <br/>
-                    나를 찾는 테스트이다.
+                    당신만의 이상적 세계로 이끈다.
                     <br/>
-                    우리는 나를 보여주고 표현해야한다.
                     <br/>
-                    전례없는 비대면 안에서 우리는
+                    당신의 무의식이 갈망하는 이상은 무엇일까.
                     <br/>
-                    계속해서 쌍방향 소통을 지속해야한다.
+                    이 테스트는 당신이 진정 갈망하는 것이
+                    <br/>
+                    무엇인지 알려준다.
+                    <br/>
+                    <br/>
+                    꿈속에서 만나게 되는 두 가지의 선택지 중
+                    <br/>
+                    더 끌리는 것을 택해라.
+                    <br/>
                 </HomeSubTitle>
                 <Link to={"/question"}>
                     <HomeStartButton src={"../images/home/start_btn.png"}/>
                 </Link>
             </HomeWrapper>
-        </div>
+        </Background>
     )
 }
 
@@ -41,6 +49,10 @@ const up = keyframes`
   }
 `
 
+const Background = styled.div`
+    background-image: url(${bgImage});
+`
+
 const HomeWrapper = styled.div`
     height: 100%;
     display: flex;
@@ -50,16 +62,14 @@ const HomeWrapper = styled.div`
 `
 
 const HomeTitleImg = styled.img`
-    margin-bottom: 45px;
+    margin-bottom: 55px;
     animation: ${up} 1s ease;
-    width: 100%;
-    height: auto;
-    padding: 15px 30px;
-    padding-top: 50px;
+    width: 335px;
+    height: 120px;
 `
 
-const HomeSubTitle = styled.h3`
-    font-family: 'Auraka';
+const HomeSubTitle = styled.div`
+    font-family: 'Noto Sans KR', sans-serif;
     font-stretch: normal;
     font-style: normal;
     text-align: center;
@@ -67,8 +77,12 @@ const HomeSubTitle = styled.h3`
     animation: ${up} 1s ease;
     font-size: 15px;
     line-height: 30px;
-    letter-spacing: -.5px;
-    margin-bottom: 90px;
+    letter-spacing: 0.5px;
+    margin-bottom: 50px;
+    
+    padding : 10px 40px;
+    background-color: #F4F9FE;
+    opacity: 0.7;
 `
 
 const HomeStartButton = styled.img`
@@ -76,12 +90,10 @@ const HomeStartButton = styled.img`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: auto;
-    padding: 0 30px;
-    padding-top: 30px;
-    margin-bottom: 10px;
+    width: 110px;
+    height: 33px;
     animation: ${up} 1s ease;
+    margin-bottom: 10px;
 `
 
 export default Home;
