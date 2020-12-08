@@ -1,23 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 import Loading from "../components/Loading";
-// import gif_1 from "../images/gif/gif_1.gif"
-// import bgImage from "../images/bg.png";
+
 const QuestionPresenter = ({
     loading,
     onClick,
     allQuestions,
     fileName,
-    pick
+    pick,
+    imagesLoaded
 }) => {
     const question = JSON.parse(allQuestions.find(q => JSON.parse(q).num === pick.length))
+    console.log(imagesLoaded)
     return (
     !loading ? (
             <Loading/>
-        ) :
+        ) : (!imagesLoaded ? (
+                <Loading/>
+            ) :
         (
             <Background link={`images/choice/${fileName}`} id="wrapper">
-                {/*<GIF src={gif_1}/>*/}
                 <QuestionContents>
                     {
                         <div>
@@ -46,7 +48,7 @@ const QuestionPresenter = ({
                 </QuestionContents>
             </Background>
         )
-    )
+    ))
 }
 
 const Background = styled.div`

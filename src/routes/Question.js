@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { questions } from "../real_item";
 import QuestionPresenter from "./QuestionPresenter";
+import { IMAGES } from "../components/Images"
 
 const Question = ({history}) => {
 
     const [ pick, setPick ] = useState([])
     const [ fileName, setFileName ] = useState("start.jpg")
     const [ loading, setLoading ] = useState(true)
+    const [ imagesLoaded, setImagesLoaded ] = useState(false)
 
     const onClick = (event) => {
         event.preventDefault()
@@ -14,6 +16,27 @@ const Question = ({history}) => {
             return [...prevState, event.target.value]
         })
     }
+
+    useEffect(() => {
+        const loadImage = image => {
+            return new Promise((resolve, reject) => {
+                const loadImg = new Image()
+                loadImg.src = image.url
+                console.log(image.url)
+                // wait 2 seconds to simulate loading time
+                loadImg.onload = () =>
+                    setTimeout(() => {
+                        resolve(image.url)
+                    }, 2000)
+
+                loadImg.onerror = err => reject(err)
+            })
+        }
+
+        Promise.all(IMAGES.map(image => loadImage(image)))
+            .then(() => setImagesLoaded(true))
+            .catch(err => console.log("Failed to load images", err))
+    }, [])
 
     useEffect( () => {
 
@@ -51,6 +74,7 @@ const Question = ({history}) => {
             allQuestions={allQuestions}
             fileName={fileName}
             pick={pick}
+            imagesLoaded={imagesLoaded}
         />
 
     )

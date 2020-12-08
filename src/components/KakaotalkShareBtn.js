@@ -35,7 +35,7 @@ const KakaoShareButton = () => {
 				content: {
 					title: 'Idea Paradox',
 					description: '#리액트 #카카오 #공유버튼',
-					imageUrl: "https://picsum.photos/id/237/200/300",
+					imageUrl: "images/share/kakaotalk_share_img.jpg",
 					link: {
 						mobileWebUrl: window.location.href,
 						webUrl: window.location.href,
