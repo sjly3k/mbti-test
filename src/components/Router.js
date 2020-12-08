@@ -10,7 +10,7 @@ const AppRouter = () => {
             <Switch>
                 <Route exact path={"/"} component={Home}/>
                 <Route path={"/question"} exact={true} component={Question}/>
-                <Route path={"/result/:result"} exact={true} component={Result}/>
+                <Route path={"/result"} exact={true} component={Result}/>
                 <Redirect from={"*"} to={"/"} />
             </Switch>
         </BrowserRouter>

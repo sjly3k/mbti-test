@@ -5,8 +5,6 @@ import ResultPresenter from "./ResultPresenter";
 const Result = ({history}) => {
     const { snap } = useCapture()
     const element = useRef(null)
-    // const dataNum = history.location.pathname.split("/")[2];
-    // const resultData = results.find(result => result.typenum === parseInt(dataNum, 10))
 
     const onClickCopyUrl = () => {
         alert("URL이 클립보드에 복사되었습니다.");

@@ -9,6 +9,7 @@ const Question = ({history}) => {
     const [ fileName, setFileName ] = useState("start.jpg")
     const [ loading, setLoading ] = useState(true)
     const [ imagesLoaded, setImagesLoaded ] = useState(false)
+    const [ percentage, setPercentage ] = useState(0);
 
     const onClick = (event) => {
         event.preventDefault()
@@ -17,52 +18,53 @@ const Question = ({history}) => {
         })
     }
 
+    const loadImage = (image, index, size) => {
+        setPercentage((index / size) * 100)
+        return new Promise((resolve, reject) => {
+            const loadImg = new Image()
+            loadImg.src = image.url
+            // wait 1 seconds to simulate loading time
+            loadImg.onload = () =>
+                setTimeout(() => {
+                    resolve(image.url)
+                }, 1000)
+
+            loadImg.onerror = err => reject(err)
+        })
+    }
+
+    const goToResult = () => {
+        setLoading(false)
+        history.push({
+            pathname : `/result`,
+            state : { result : `${pick.join()}.jpg` }
+        })
+    }
+
     useEffect(() => {
-        const loadImage = image => {
-            return new Promise((resolve, reject) => {
-                const loadImg = new Image()
-                loadImg.src = image.url
-                console.log(image.url)
-                // wait 2 seconds to simulate loading time
-                loadImg.onload = () =>
-                    setTimeout(() => {
-                        resolve(image.url)
-                    }, 2000)
-
-                loadImg.onerror = err => reject(err)
-            })
-        }
-
-        Promise.all(IMAGES.map(image => loadImage(image)))
+        Promise.all(IMAGES.map((image, index) => loadImage(image, index, IMAGES.length)))
             .then(() => setImagesLoaded(true))
             .catch(err => console.log("Failed to load images", err))
     }, [])
 
     useEffect( () => {
 
-        if (pick.length === 6) {
-            setLoading(false)
-
-            window.setTimeout(() => {
-                history.push({
-                    pathname : `/result/1`,
-                    // ${result.typenum}`,
-                    state : { result : 1
-                        // result.typenum
-                    }
-                })
-            }, 3000)
-        }
-
-        console.log('Do something after counter has changed', pick, pick.length);
-
         if (pick.length !== 0) {
+            console.log(pick)
             setFileName(`${pick.join()}.jpg`)
         } else {
             setFileName('start.jpg')
         }
 
-    }, [pick, history]);
+        if (pick.length === 6) {
+            loadImage({url : `/images/results/${pick.join()}.jpg`}, 1, 1)
+                .then(() => goToResult())
+                .catch(err => console.log("Failed to load result image", err))
+        }
+
+        console.log('Do something after counter has changed', pick, pick.length);
+
+    }, [pick]);
 
     const allQuestions = questions.map((question) => JSON.stringify(question))
 
@@ -75,6 +77,7 @@ const Question = ({history}) => {
             fileName={fileName}
             pick={pick}
             imagesLoaded={imagesLoaded}
+            percentage={percentage}
         />
 
     )

@@ -6,6 +6,7 @@ import KakaoShareButton from "../components/KakaotalkShareBtn";
 import bgImage from "../images/bg.png";
 
 const ResultPresenter = ({
+    history,
     onClickCopyUrl,
     onClickDownload,
     element
@@ -20,7 +21,13 @@ const ResultPresenter = ({
                     alignItems : "center",
                     marginTop : "20px"
                 }}>
-                    <img style={{width : "90%", height: "auto"}} src={"/images/results/0,0,0,0,0,0.jpg"} alt={"result_photo"}/>
+                    {
+                        history.location.state ? (
+                            <img style={{width : "90%", height: "auto"}} src={`/images/results/${history.location.state.result}`} alt={"result_photo"}/>
+                        ) : (
+                            <React.Fragment/>
+                        )
+                    }
                 </div>
                 <ResultContext>
                     테스트의 결과가 어떠한가.

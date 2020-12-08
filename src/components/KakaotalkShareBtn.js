@@ -35,18 +35,18 @@ const KakaoShareButton = () => {
 				content: {
 					title: 'Idea Paradox',
 					description: '#리액트 #카카오 #공유버튼',
-					imageUrl: "images/share/kakaotalk_share_img.jpg",
+					imageUrl: "https://www.idea-paradox.com/images/share/kakaotalk_share_img.jpg",
 					link: {
-						mobileWebUrl: window.location.href,
-						webUrl: window.location.href,
+						mobileWebUrl: "https://www.idea-paradox.com/",
+						webUrl: "https://www.idea-paradox.com/",
 					},
 				},
 				buttons: [
 					{
 						title: '웹으로 보기',
 						link: {
-							mobileWebUrl: window.location.href,
-							webUrl: window.location.href,
+							mobileWebUrl: "https://www.idea-paradox.com/",
+							webUrl: "https://www.idea-paradox.com/",
 						},
 					},
 				],

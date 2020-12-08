@@ -8,10 +8,11 @@ const QuestionPresenter = ({
     allQuestions,
     fileName,
     pick,
-    imagesLoaded
+    imagesLoaded,
+    percentage
 }) => {
+    console.log(percentage)
     const question = JSON.parse(allQuestions.find(q => JSON.parse(q).num === pick.length))
-    console.log(imagesLoaded)
     return (
     !loading ? (
             <Loading/>
