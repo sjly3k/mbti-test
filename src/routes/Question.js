@@ -33,14 +33,6 @@ const Question = ({history}) => {
         })
     }
 
-    const goToResult = () => {
-        setLoading(false)
-        history.push({
-            pathname : `/result`,
-            state : { result : `${pick.join()}.jpg` }
-        })
-    }
-
     useEffect(() => {
         Promise.all(IMAGES.map((image, index) => loadImage(image, index, IMAGES.length)))
             .then(() => setImagesLoaded(true))
@@ -48,6 +40,14 @@ const Question = ({history}) => {
     }, [])
 
     useEffect( () => {
+
+        const goToResult = () => {
+            setLoading(false)
+            history.push({
+                pathname : `/result`,
+                state : { result : `${pick.join()}.jpg` }
+            })
+        }
 
         if (pick.length !== 0) {
             console.log(pick)
@@ -64,7 +64,7 @@ const Question = ({history}) => {
 
         console.log('Do something after counter has changed', pick, pick.length);
 
-    }, [pick]);
+    }, [pick, history]);
 
     const allQuestions = questions.map((question) => JSON.stringify(question))
 
