@@ -9,7 +9,6 @@ const Question = ({history}) => {
     const [ fileName, setFileName ] = useState("start.jpg")
     const [ loading, setLoading ] = useState(true)
     const [ imagesLoaded, setImagesLoaded ] = useState(false)
-    const [ percentage, setPercentage ] = useState(0);
 
     const onClick = (event) => {
         event.preventDefault()
@@ -18,10 +17,8 @@ const Question = ({history}) => {
         })
     }
 
-    const loadImage = (image, index, size) => {
+    const loadImage = (image) => {
 
-        // console.log((index / size) * 100)
-        // setPercentage((index / size) * 100)
         return new Promise((resolve, reject) => {
             const loadImg = new Image()
             loadImg.src = image.url
@@ -29,7 +26,6 @@ const Question = ({history}) => {
             loadImg.onload = () =>
                 setTimeout(() => {
                     resolve(image.url)
-                    setPercentage((index / size) * 100)
                 }, 2000)
 
             loadImg.onerror = err => reject(err)
@@ -37,7 +33,7 @@ const Question = ({history}) => {
     }
 
     useEffect(() => {
-        Promise.all(IMAGES.map((image, index) => loadImage(image, index, IMAGES.length)))
+        Promise.all(IMAGES.map((image) => loadImage(image)))
             .then(() => setImagesLoaded(true))
             .catch(err => console.log("Failed to load images", err))
     }, [])
@@ -45,30 +41,27 @@ const Question = ({history}) => {
     useEffect( () => {
 
         const goToResult = () => {
-            setLoading(false)
+            setLoading(true)
             setTimeout(() => {
                 history.push({
                     pathname : `/result`,
                     state : { result : `${pick.join()}.jpg` }
                 })
-            }, 1500)
+            }, 3000)
         }
 
         if (pick.length !== 0) {
-            console.log(pick)
             setFileName(`${pick.join()}.jpg`)
         } else {
             setFileName('start.jpg')
         }
 
         if (pick.length === 6) {
-            loadImage({url : `/images/results/${pick.join()}.jpg`}, 1, 1)
+            setLoading(false)
+            loadImage({url : `/images/results/${pick.join()}.jpg`})
                 .then(() => goToResult())
                 .catch(err => console.log("Failed to load result image", err))
         }
-
-        console.log('Do something after counter has changed', pick, pick.length);
-
     }, [pick, history]);
 
     const allQuestions = questions.map((question) => JSON.stringify(question))
@@ -82,7 +75,6 @@ const Question = ({history}) => {
             fileName={fileName}
             pick={pick}
             imagesLoaded={imagesLoaded}
-            percentage={percentage}
         />
 
     )

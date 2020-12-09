@@ -9,19 +9,19 @@ const QuestionPresenter = ({
     fileName,
     pick,
     imagesLoaded,
-    percentage
 }) => {
-    console.log(percentage)
+
     const question = JSON.parse(allQuestions.find(q => JSON.parse(q).num === pick.length))
     return (
         !imagesLoaded ? (
             <React.Fragment>
-                <span>{percentage}</span>
                 <Loading/>
             </React.Fragment>
             ) :
             (
-                !loading ? (<Loading/>) : (
+                !loading ? (
+                    <Loading/>
+                    ) : (
                     <Background link={`images/choice/${fileName}`} id="wrapper">
                         <QuestionContents>
                             {

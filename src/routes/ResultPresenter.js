@@ -69,13 +69,8 @@ const ResultPresenter = ({
                 </ResultContext>
 
                 <ResultBtnWrapper>
-                {/* 이거 활성화 하려면 별도 작업 필요 (백엔드 작업 -> DB, 서버 필요해지고 구조 복잡해짐.), URL 복사로 대신하는 것이 좋아보임*/}
 
-                    {/*<Link to={"/"}>*/}
-                    {/*    <div style={{fontFamily : "Gotham", position : "relative", paddingTop: "10px", backgroundColor : "#fff"}}>Paradox</div>*/}
-                    {/*</Link>*/}
-
-                    <Link to={"/"}>
+                    <Link to={"/paradox"}>
                         <ResultBtn>
                             <ResultBtnText>
                                 <span>Paradox</span>
