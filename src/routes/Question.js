@@ -30,7 +30,7 @@ const Question = ({history}) => {
                 setTimeout(() => {
                     resolve(image.url)
                     setPercentage((index / size) * 100)
-                }, 500)
+                }, 2000)
 
             loadImg.onerror = err => reject(err)
         })
