@@ -46,12 +46,6 @@ const Question = ({history}) => {
                 pathname : `/result`,
                 state : { result : `${pick.join()}.jpg` }
             })
-            // setTimeout(() => {
-            //     history.push({
-            //         pathname : `/result`,
-            //         state : { result : `${pick.join()}.jpg` }
-            //     })
-            // }, 5000)
         }
 
         if (pick.length !== 0) {

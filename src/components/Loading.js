@@ -13,7 +13,7 @@ const Container = styled.div`
 `
 
 const Image = styled.img`
-    width: 40%;
+    width: 60%;
     display: block;
 `
 
@@ -35,12 +35,48 @@ const LoadingText = styled.div`
   }
 `
 
+const TopWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+const LoadingMainText = styled.div`
+    text-align: center;
+    color: #222;
+    height: 100%;
+    background-color: white;
+    padding: 19px 10px 0 10px;
+    margin-bottom: 20px;
+    span {
+        font-family: "Gotham";
+        font-size: 25px;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: 1.5px;
+    }
+`
+
 const Loading = ({
     type="question"
                  }) => {
     return (
         <Container>
-            <Image src={loadingImg}/>
+            <TopWrapper>
+                {
+                    type === "question" ? (
+                        <LoadingMainText>
+                            <span>Loading...</span>
+                        </LoadingMainText>
+                    ) : (
+                        <LoadingMainText>
+                            <span>Creating Result...</span>
+                        </LoadingMainText>
+                    )
+                }
+                <Image src={loadingImg}/>
+            </TopWrapper>
             {
                 type === "question" ? (
                     <LoadingTextWrapper>
