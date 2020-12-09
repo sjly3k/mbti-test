@@ -34,7 +34,7 @@ const KakaoShareButton = () => {
 				objectType: 'feed',
 				content: {
 					title: 'Idea Paradox',
-					description: '#리액트 #카카오 #공유버튼',
+					description: '#emotiontest #idea #paradox',
 					imageUrl: "https://www.idea-paradox.com/images/share/kakaotalk_share_img.jpg",
 					link: {
 						mobileWebUrl: "https://www.idea-paradox.com/",
@@ -43,7 +43,7 @@ const KakaoShareButton = () => {
 				},
 				buttons: [
 					{
-						title: '웹으로 보기',
+						title: 'Go to the Ideal Space',
 						link: {
 							mobileWebUrl: "https://www.idea-paradox.com/",
 							webUrl: "https://www.idea-paradox.com/",

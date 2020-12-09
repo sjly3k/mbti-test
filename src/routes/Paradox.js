@@ -63,21 +63,4 @@ const ParadoxContext = styled.div`
     margin : 30px 20px 20px 20px;
 `
 
-// padding : 10px 40px;
-// background-color: #F4F9FE;
-// opacity: 0.7;
-// margin-bottom: 50px;
-// text-align: center;
-// animation: ${up} 1s ease;
-//
-// span {
-//     font-family: 'Noto Sans KR', sans-serif;
-//     font-stretch: normal;
-//     font-style: normal;
-//     color: #000;
-//     font-size: 15px;
-//     line-height: 30px;
-//     letter-spacing: 0.5px;
-// }
-
 export default Paradox;

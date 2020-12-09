@@ -139,15 +139,14 @@ const ResultContext = styled.div`
     font-stretch: normal;
     font-style: normal;
     text-align: center;
-    color: #222;
+    color: #000;
     font-size: 15px;
     line-height: 30px;
     letter-spacing: 0.5px;
     
     margin : 20px 40px;
     padding : 30px 0px;
-    background-color: #F4F9FE;
-    opacity: 0.7;
+    background: rgba(256, 256, 256, 0.65);
 `
 
 const ResultBtnWrapper = styled.div`
