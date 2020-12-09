@@ -15,12 +15,12 @@ const QuestionPresenter = ({
     return (
         !imagesLoaded ? (
             <React.Fragment>
-                <Loading/>
+                <Loading type={"question"}/>
             </React.Fragment>
             ) :
             (
                 !loading ? (
-                    <Loading/>
+                    <Loading type={"result"}/>
                     ) : (
                     <Background link={`images/choice/${fileName}`} id="wrapper">
                         <QuestionContents>
