@@ -9,7 +9,6 @@ import {LinkIcon} from "../components/Icons";
 const ResultPresenter = ({
     history,
     onClickCopyUrl,
-    onClickDownload,
     element
 }) => {
 
@@ -83,12 +82,6 @@ const ResultPresenter = ({
                             </ResultBtnText>
                         </ResultBtn>
                     </Link>
-
-                    <ResultBtn onClick={onClickDownload}>
-                        <ResultBtnText>
-                            <span>Save</span>
-                        </ResultBtnText>
-                    </ResultBtn>
 
                     <ResultShareBtnWrapper>
                         <CopyToClipboard text={"https://www.idea-paradox.com/"}>
