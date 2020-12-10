@@ -84,7 +84,7 @@ const ResultPresenter = ({
                     </Link>
 
                     <ResultShareBtnWrapper>
-                        <CopyToClipboard text={"https://www.idea-paradox.com"}>
+                        <CopyToClipboard text={"https://www.idea-paradox.com/"}>
                             <ResultShareBtn id={"shareUrl"} onClick={onClickCopyUrl}>
                                 <LinkIcon size={40}/>
                             </ResultShareBtn>
