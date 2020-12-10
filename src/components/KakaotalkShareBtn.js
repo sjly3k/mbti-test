@@ -1,16 +1,12 @@
 import React, { useEffect } from 'react'
 import styled from "styled-components";
+import {KakaoTalkIcon} from "./Icons";
 
 const ResultShareBtn = styled.div`
     flex: 20% 1;
-    height: 40px;
     cursor: pointer;
-`
-
-const ResultShareBtnImg = styled.img`
-    object-fit: contain;
-    width: 40px;
-    height: 40px;
+    background-color: white;
+    padding: 5px 20px;
 `
 
 const KakaoShareButton = () => {
@@ -56,7 +52,7 @@ const KakaoShareButton = () => {
 	return (
 		<ResultShareBtn id="kakao-link-btn">
 			{/* Kakao share button */}
-			<ResultShareBtnImg src={"../images/share/share_kakao.svg"} alt="kakao-share-icon" />
+			<KakaoTalkIcon size={40}/>
 		</ResultShareBtn>
 	)
 }

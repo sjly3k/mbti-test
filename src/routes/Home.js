@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 import bgImage from "../images/bg.png";
 
 const Home = () => {
@@ -43,16 +43,6 @@ const Home = () => {
     )
 }
 
-const up = keyframes`
-  0% {
-    transform: translateY(-100%);
-  }
-  
-  100% {
-    transform: translateY(0%);
-  }
-`
-
 const Background = styled.div`
     background-image: url(${bgImage});
 `
@@ -67,7 +57,6 @@ const HomeWrapper = styled.div`
 
 const HomeTitleImg = styled.img`
     margin-bottom: 55px;
-    animation: ${up} 1s ease;
     width: 335px;
     height: 120px;
 `
@@ -78,7 +67,6 @@ const HomeSubTitle = styled.div`
     background: rgba(256, 256, 256, 0.65);
     margin-bottom: 50px;
     text-align: center;
-    animation: ${up} 1s ease;
             
     span {
         font-family: 'Noto Sans KR', sans-serif;
@@ -105,7 +93,6 @@ const HomeStartButton = styled.div`
         font-style: normal;
         letter-spacing: 1.5px;
     }
-    animation: ${up} 1s ease;
 `
 
 

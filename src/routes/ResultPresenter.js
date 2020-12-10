@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import KakaoShareButton from "../components/KakaotalkShareBtn";
 import bgImage from "../images/bg.png";
+import {LinkIcon} from "../components/Icons";
 
 const ResultPresenter = ({
     history,
@@ -15,6 +16,7 @@ const ResultPresenter = ({
     return (
         <Background id="wrapper">
             <ResultContents className={"result-contents"}>
+                <ParadoxTitleImg src={"../images/home/title.png"}/>
                 <div ref={element} style={{
                     display : "flex",
                     justifyContent : "center",
@@ -78,18 +80,16 @@ const ResultPresenter = ({
                         </ResultBtn>
                     </Link>
 
-                    <Link to={"/images/results/0,0,0,0,0,0.jpg"} download>
-                        <ResultBtn onClick={onClickDownload}>
-                            <ResultBtnText>
-                                <span>Save</span>
-                            </ResultBtnText>
-                        </ResultBtn>
-                    </Link>
+                    <ResultBtn onClick={onClickDownload}>
+                        <ResultBtnText>
+                            <span>Save</span>
+                        </ResultBtnText>
+                    </ResultBtn>
 
                     <ResultShareBtnWrapper>
                         <CopyToClipboard text={window.location.href}>
                             <ResultShareBtn id={"shareUrl"} onClick={onClickCopyUrl}>
-                                <ResultShareBtnImg src={"../images/share/share_url.svg"}/>
+                                <LinkIcon size={40}/>
                             </ResultShareBtn>
                         </CopyToClipboard>
                         <KakaoShareButton/>
@@ -123,6 +123,12 @@ const ResultPresenter = ({
         </Background>
     )
 }
+
+const ParadoxTitleImg = styled.img`
+    margin-top: 30px;
+    width: 335px;
+    height: 120px;
+`
 
 const Background = styled.div`
     background-image: url(${bgImage});
@@ -231,15 +237,11 @@ const ResultShareBtnWrapper = styled.div`
 
 const ResultShareBtn = styled.div`
     flex: 20% 1;
-    height: 40px;
     cursor: pointer;
+    background-color: white;
+    padding: 5px 20px;
     margin-right: 20px;
 `
 
-const ResultShareBtnImg = styled.img`
-    object-fit: contain;
-    width: 40px;
-    height: 40px;
-`
 
 export default ResultPresenter;

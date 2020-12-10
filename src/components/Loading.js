@@ -48,7 +48,7 @@ const LoadingMainText = styled.div`
     height: 100%;
     background-color: white;
     padding: 19px 10px 0 10px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     span {
         font-family: "Gotham";
         font-size: 25px;
@@ -81,12 +81,12 @@ const Loading = ({
                 type === "question" ? (
                     <LoadingTextWrapper>
                         <LoadingText>테스트에 필요한 이미지를 다운로드하고 있습니다.</LoadingText>
-                        <LoadingText><strong>30초 ~ 1분</strong>뒤에 실행됩니다.</LoadingText>
+                        <LoadingText><strong>30초 ~ 1분</strong> 뒤에 실행됩니다.</LoadingText>
                     </LoadingTextWrapper>
                 ) : (
                     <LoadingTextWrapper>
                         <LoadingText>결과 이미지를 다운로드하고 있습니다.</LoadingText>
-                        <LoadingText><strong>5초</strong>뒤에 실행됩니다.</LoadingText>
+                        <LoadingText><strong>5초</strong> 뒤에 실행됩니다.</LoadingText>
                     </LoadingTextWrapper>
                 )
             }
