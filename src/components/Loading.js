@@ -30,6 +30,7 @@ const LoadingText = styled.div`
     text-align: center;
     font-size: 15px;
     padding : 10px 0px;
+    color : #dad9d9;
   strong {
     font-weight: bold;
   }

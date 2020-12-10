@@ -25,7 +25,11 @@ const ResultPresenter = ({
                 }}>
                     {
                         history.location.state ? (
-                            <img style={{width : "90%", height: "auto"}} src={`/images/results/${history.location.state.result}`} alt={"result_photo"}/>
+                            <div style={{display : "flex", alignItems : "center", justifyContent : "center", flexDirection : "column"}}>
+                                <img style={{width : "90%", height: "auto"}} src={`/images/results/${history.location.state.result}`} alt={"result_photo"}/>
+                                <ResultText>결과 이미지는 꾹 눌러 다운로드 하세요.</ResultText>
+                            </div>
+
                         ) : (
                             <React.Fragment/>
                         )
@@ -87,7 +91,7 @@ const ResultPresenter = ({
                     </ResultBtn>
 
                     <ResultShareBtnWrapper>
-                        <CopyToClipboard text={window.location.href}>
+                        <CopyToClipboard text={"https://www.idea-paradox.com/"}>
                             <ResultShareBtn id={"shareUrl"} onClick={onClickCopyUrl}>
                                 <LinkIcon size={40}/>
                             </ResultShareBtn>
@@ -138,6 +142,20 @@ const ResultContents = styled.div`
     width: 100%;
     height: 100%;
     text-align: center;
+`
+
+const ResultText = styled.div`
+    font-family: 'Noto Sans KR', sans-serif;
+    font-stretch: normal;
+    font-style: normal;
+    text-align: center;
+    font-weight: bold;
+    color: #dad9d9;
+    font-size: 15px;
+    line-height: 30px;
+    letter-spacing: 0.5px;
+    
+    margin-top: 5px;
 `
 
 const ResultContext = styled.div`
